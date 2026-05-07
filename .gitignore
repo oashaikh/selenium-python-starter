@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+.cache/
+.pytest_cache/
+.ruff_cache/
+
+# Selenium / driver manager
+.wdm/
+geckodriver.log
+chromedriver.log
+
+# Test artifacts
+test-results/
+screenshots/
+report.html
+htmlcov/
+.coverage
+junit.xml
+allure-results/
+
+# Env
+.env
+.env.local
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

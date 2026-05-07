@@ -1,0 +1,26 @@
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - pip-cache:/root/.cache/pip
+    environment:
+      - BASE_URL=${BASE_URL:-https://www.selenium.dev}
+      - BROWSER=chrome
+      - HEADED=0
+    shm_size: 2gb
+    entrypoint: ["pytest"]
+
+  # Alternative: use the official Selenium Grid containers instead of bundling
+  # Chrome into the test image. Uncomment to use, then point your tests at it
+  # via Remote WebDriver.
+  # selenium-hub:
+  #   image: selenium/standalone-chrome:latest
+  #   shm_size: 2gb
+  #   ports:
+  #     - "4444:4444"
+
+volumes:
+  pip-cache:
